@@ -1,29 +1,37 @@
-# Release Operation
+# Release Guide
 
 ## 日本語
 
-このリポジトリは GitHub Releases に成果物だけを置くための配布用リポジトリです。
-ソースコード、ビルドログ、検証画像、ローカル設定、認証情報はコミットしません。
+NewEngine のリリースは、NewLauncher が自動検出できる manifest と Windows x64 パッケージで構成されます。
 
-GameEngine 開発リポジトリ側で以下を実行します。
+### ファイル
+
+- `engine-manifest.json`: バージョン、チャンネル、SHA256、パッケージ名、対応 Launcher バージョンを記録します。
+- `NewGameEngine-<version>-win-x64.zip`: NewEditor、Engine ランタイム、ROM 実行環境、標準テンプレートを含む実行パッケージです。
+
+### 公開手順
 
 ```powershell
 .\build_all.bat
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\package-release.ps1 -Version <version>
-$env:GITHUB_TOKEN = "<repo 権限を持つ token>"
+$env:GITHUB_TOKEN = "<repo token>"
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\publish-release.ps1 -Version <version>
 ```
 
 ## English
 
-This is a release-only repository. GitHub Releases should contain the distributable artifacts only.
-Do not commit source code, build logs, verification screenshots, local settings, or credentials.
+NewEngine releases are made of a manifest that NewLauncher can detect automatically and a Windows x64 package.
 
-Run the following from the private GameEngine development repository.
+### Files
+
+- `engine-manifest.json`: Records version, channel, SHA256, package name, and the required Launcher version.
+- `NewGameEngine-<version>-win-x64.zip`: Runtime package containing NewEditor, Engine runtime files, ROM runtime, and default templates.
+
+### Publishing
 
 ```powershell
 .\build_all.bat
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\package-release.ps1 -Version <version>
-$env:GITHUB_TOKEN = "<token with repository permissions>"
+$env:GITHUB_TOKEN = "<repo token>"
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\publish-release.ps1 -Version <version>
 ```
