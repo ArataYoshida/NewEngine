@@ -1,0 +1,64 @@
+# This repository is release-only. Source code and local build outputs must never be committed.
+*
+
+# Repository metadata that is safe to publish.
+!.gitignore
+!LICENSE
+!README.md
+!RELEASES.md
+
+# Extra deny-list for accidental force-add attempts.
+.env
+.env.*
+*.pem
+*.pfx
+*.p12
+*.key
+*.snk
+*.user
+*.suo
+*.secrets.json
+appsettings.*.json
+secrets/
+credentials/
+tokens/
+
+# Source trees from the private development repository.
+NewEditor/
+NewEngine/
+NewLauncher/
+NewRomBootstrapper/
+NewScriptCore/
+NewEditor.AssetImporter/
+tools/
+CMakeLists.txt
+*.cs
+*.cpp
+*.c
+*.h
+*.hpp
+*.csproj
+*.sln
+*.xaml
+*.ps1
+*.bat
+
+# Local outputs and diagnostics.
+bin/
+obj/
+build/
+.vs/
+.vscode/
+.cache/
+*.log
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.zip
+*.7z
+*.rar
+*.png
+*.jpg
+*.jpeg
+*.bmp
